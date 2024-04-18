@@ -36,3 +36,6 @@ const coffee = {
 coffee.isHot = false;
 coffee.barista = 'Yoshipi';
 console.log(coffee);
+
+let userInfo = null;
+userInfo = undefined;
