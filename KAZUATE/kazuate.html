@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+  </head>
+  <body>
+    <h1>数当てゲーム</h1>
+    <p>0から10までの数を推測してください。</p>
+    <!--ユーザーが数を入力するためのテキストボックス idを利用してこの要素にアクセスする-->
+    <input type="number" id="guessInput" />
+    <!--ユーザーが数を推測するためのボタンです。クリックされると、checkGuess() 関数が呼び出されます-->
+    <button onclick="checkGuess()">推測する</button>
+    <p id="result"></p>
+
+    <script>
+      //関数: ユーザーの推測を確認し、結果を表示します。
+      function checkGuess() {
+        //ユーザーが入力した推測を取得します。parseInt() 関数を使って文字列から整数に変換します。
+        var userGuess = parseInt(document.getElementById('guessInput').value);
+        //0から10までのランダムな数を生成します。
+        var randomNumber = Math.floor(Math.random() * 11); // 0から10のランダムな整数を生成
+
+        //if 文による条件分岐:入力が数字かどうかをチェックします。
+        if (isNaN(userGuess)) {
+          document.getElementById('result').textContent =
+            '数字を入力してください。';
+          //入力が0から10の範囲内にあるかどうかをチェックします。
+        } else if (userGuess < 0 || userGuess > 10) {
+          document.getElementById('result').textContent =
+            '0から10までの数字を入力してください。';
+          //入力がランダムな数と一致するかどうかをチェックします。
+        } else if (userGuess === randomNumber) {
+          document.getElementById('result').textContent =
+            'おめでとうございます！正解です！';
+        } else {
+          document.getElementById('result').textContent =
+            '残念！正解は ' +
+            randomNumber +
+            ' でした。もう一度挑戦してください。';
+        }
+      }
+    </script>
+  </body>
+</html>

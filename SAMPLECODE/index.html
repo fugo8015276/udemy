@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greeting Program</title>
+  </head>
+  <body>
+    <h1>挨拶プログラム</h1>
+    <script>
+      // ユーザーに名前を入力してもらう
+      var userName = prompt('こんにちは！あなたの名前は何ですか？');
+
+      // 入力された名前を使って挨拶をする
+      if (userName !== null && userName !== '') {
+        alert('こんにちは、' + userName + 'さん！ようこそ！');
+      } else {
+        alert('名前を入力してください！');
+      }
+    </script>
+  </body>
+</html>

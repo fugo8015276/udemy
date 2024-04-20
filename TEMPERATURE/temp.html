@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>温度変換プログラム</title>
+  </head>
+  <body>
+    <h1>温度変換プログラム</h1>
+    <p>温度と単位を入力してください:</p>
+    <input type="text" id="tempInput" placeholder="温度を入力" />
+    <select id="unitSelect">
+      <option value="C">摂氏(C)</option>
+      <option value="F">ファーレンハイト(F)</option>
+    </select>
+    <button onclick="convertTemperature()">変換</button>
+    <p id="result"></p>
+
+    <script>
+      function convertTemperature() {
+        let temp = parseFloat(document.getElementById('tempInput').value);
+        let unit = document.getElementById('unitSelect').value;
+
+        if (isNaN(temp)) {
+          alert('有効な温度を入力してください。');
+          return;
+        }
+
+        let result;
+        if (unit === 'C') {
+          // 摂氏からファーレンハイトへの変換
+          let fahrenheit = (temp * 9) / 5 + 32;
+          result = `${temp}°C = ${fahrenheit.toFixed(1)}°F`;
+        } else if (unit === 'F') {
+          // ファーレンハイトから摂氏への変換
+          let celsius = ((temp - 32) * 5) / 9;
+          result = `${temp}°F = ${celsius.toFixed(1)}°C`;
+        } else {
+          result = '無効な単位が選択されました。';
+        }
+
+        document.getElementById('result').textContent = result;
+      }
+    </script>
+  </body>
+</html>
