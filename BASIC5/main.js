@@ -36,3 +36,22 @@ if (ok) {
 } else {
   console.log('NO');
 }
+
+ok = true && false; //論理積・両方がtrueだった場合
+ok = true || false; //論理和
+
+ok = 0 && 'hi';
+ok = '' || 'hi';
+const userInput = '';
+const userName = userInput || 'User'; //userInputが空文字だったら、’User'になる。
+
+const x = 15;
+ok = x > 10 && x < 20;
+ok = x === 10 || (x > 12 && userName);
+console.log(ok);
+
+if (ok) {
+  console.log('OK');
+} else {
+  console.log('NO');
+}
